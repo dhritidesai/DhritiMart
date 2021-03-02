@@ -1,0 +1,39 @@
+<%- include('partials/header') %>
+<main class="container">
+<%  req.user.cart.items.forEach(function(item){ %>
+      <div class="row cart g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+        <div class="col p-4 d-flex flex-column position-static">
+          <h3 class="mb-0"><%= item.productId.title %></h3>
+          <div class="mb-1 text-muted">₹ <%= item.productId.price %></div>
+          <p class="card-text mb-auto"><%= item.productId.content.substring(0, 200) %></p>
+          <input type="hidden" name="id" value="<%= item.productId %>">
+          <div class="mb-1 text-muted">
+            <a href="/add"><i class="fas fa-plus"></i></a>
+            <%= item.qty %>
+            <% if(item.qty==1){%>
+              item
+            <%} else{ %>
+              items
+            <% } %>
+              added
+              <a href="/remove"><i class="fas fa-minus"></i></a>
+              <a href="/delete"><i class="far fa-trash-alt"></i></a>
+            </div>
+        </div>
+        <% console.log(item.productId.img) %>
+        <div class="col-auto d-none d-lg-block">
+          <img class="bd-placeholder-img" width="200" height="250" src="uploads/<%= item.productId.img %>">
+
+        </div>
+      </div>
+          <%}); %>
+
+  <div class="row">
+    <div class="col-md-8">
+      <h3 class="pb-4 mb-4 fst-italic border-bottom">
+        Total price = <%= req.user.cart.totalPrice %>
+      </h3>
+    </div>
+  </div>
+</main>
+<%- include('partials/footer') %>

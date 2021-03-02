@@ -1,0 +1,27 @@
+ <%- include("partials/header"); -%>
+ <div class="compose">
+   <h1>Compose Product</h1>
+    <form class="" action="/comproduct" method="post" enctype="multipart/form-data">
+      <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" type="text" name="title">
+        <label>Content</label>
+        <textarea class="form-control" name="content" rows="5" cols="30"></textarea>
+        <label for="caterogy">Choose a category:</label>
+        <select id="category" name="category">
+          <option value="1">Ethnic</option>
+          <option value="2">Western</option>
+          <option value="3">Athleisure</option>
+        </select>
+        <label>Price</label>
+        <input class="form-control" type="number" name="price">
+        <label>Photo</label>
+        <br>
+        <input type="file" name="file">
+      </div>
+      <button class="btn btn-primary" type="submit" name="button">Add product</button>
+    </form>
+ </div>
+
+
+<%- include("partials/footer"); -%>

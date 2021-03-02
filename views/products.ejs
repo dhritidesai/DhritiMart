@@ -1,0 +1,20 @@
+<%- include('partials/header') %>
+<div class="container marketing">
+  <!-- Three columns of text below the carousel -->
+  <div class="row">
+    <%  products.forEach(function(product){ %>
+        <div class="col-lg-4">
+          <img class="rounded-circle" src="uploads/<%= product.img %>" alt="Generic placeholder image" width="140" height="140">
+          <h2><%= product.title %></h2>
+          <p><%= product.content %></p>
+          <h6> ₹ <%= product.price %></h6>
+          <form class="" action="/addToCart" method="post">
+            <input type="hidden" name="id" value="<%=product._id%>">
+            <button type="submit" name="button" class="btn btn-secondary">Add to cart &raquo;</button>
+          </form>
+        </div><!-- /.col-lg-4 -->
+    <% }) %>
+
+  </div><!-- /.row -->
+</div>
+<%- include('partials/footer') %>
